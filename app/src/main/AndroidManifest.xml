@@ -11,9 +11,13 @@
         android:theme="@style/Theme.Activity">
         <activity
             android:name=".MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/title_activity_main"
             >
+        </activity>
+        <activity
+            android:name=".WelcomeScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,15 +25,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".WelcomeScreen"
-            android:exported="false">
-        </activity>
-        <activity
             android:name=".Login"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Registration"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>

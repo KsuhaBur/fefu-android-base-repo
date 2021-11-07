@@ -136,21 +136,20 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginEnd="16dp"
+                >
 
                 <RadioButton
                     android:id="@+id/radioButtonMale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/registration_male_text"
-                    android:textColorLink="@color/primary"
                     android:textSize="16sp" />
 
                 <RadioButton
                     android:id="@+id/radioButtonFemale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorLink="@color/primary"
                     android:text="@string/registration_female_text"
                     android:textSize="16sp" />
 
@@ -158,7 +157,6 @@
                     android:id="@+id/radioButtonOther"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorLink="@color/primary"
                     android:text="@string/registration_other_text"
                     android:textSize="16sp" />
             </RadioGroup>
@@ -166,14 +164,14 @@
             <Button
                 android:id="@+id/buttonRegistration"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:backgroundTint="@color/primary"
                 android:fontFamily="sans-serif"
-                android:textAllCaps="false"
                 android:text="@string/button_text"
+                android:textAllCaps="false"
                 android:textColor="@color/white" />
 
             <TextView
