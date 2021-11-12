@@ -16,7 +16,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
                 UsersActivityFragment()
             }
             else->{
-                ProfileFragment()
+                ActivityFragment()
             }
         }
     }

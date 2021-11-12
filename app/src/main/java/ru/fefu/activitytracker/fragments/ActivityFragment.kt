@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Adapter
 import android.widget.TableLayout
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -41,7 +42,5 @@ class ActivityFragment : Fragment() {
 
         return myFragment
     }
-
-        //return inflater.inflate(R.layout.fragment_activity, container, false)
 
 }
