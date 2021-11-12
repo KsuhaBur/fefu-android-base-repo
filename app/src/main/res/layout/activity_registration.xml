@@ -8,38 +8,15 @@
     android:backgroundTint="@color/white"
     tools:context=".Registration">
 
-    <TableRow
-        android:id="@+id/tableRow"
-        android:layout_height="56sp"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_registration"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        android:onClick="back"
+        app:title="@string/registration2_text"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/buttonArrowBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:background="@color/white"
-            android:onClick="back"
-            app:srcCompat="@drawable/ic_arrow_back" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20sp"
-            android:backgroundTint="@color/white"
-            android:gravity="center_vertical"
-            android:text="@string/registration2_text"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:autoSizeMinTextSize="20sp" />
-    </TableRow>
     <ScrollView
         android:layout_width="414dp"
         android:layout_height="677dp"
@@ -47,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_registration"
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
@@ -65,7 +42,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="48sp"
+                    android:layout_height="48dp"
                     android:hint="@string/login_text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +55,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="48sp"
+                    android:layout_height="48dp"
                     android:hint="@string/name_or_nickname_text"
                     android:password="true" />
 
