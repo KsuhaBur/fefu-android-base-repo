@@ -20,25 +20,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val activityFragment = supportFragmentManager.findFragmentByTag("activityFragment")
-        val profileFragment = supportFragmentManager.findFragmentByTag("profileFragment")
-
         binding.bottomNav.setOnNavigationItemSelectedListener {
+            val activityFragment = supportFragmentManager.findFragmentByTag("activityFragment")
+            val profileFragment = supportFragmentManager.findFragmentByTag("profileFragment")
             when (it.itemId) {
                 R.id.navigation_activity -> {
-                    if (activityFragment !== null) {
-                        if (profileFragment !== null) {
-                            supportFragmentManager.beginTransaction().hide(profileFragment).commit()
-                        }
-                        supportFragmentManager.beginTransaction().show(activityFragment)
-                            .commit()
+                    if (profileFragment !== null) {
+                        supportFragmentManager.beginTransaction().hide(profileFragment).commit()
                     }
-                    else {
-                        if (profileFragment !== null) {
-                            supportFragmentManager.beginTransaction().hide(profileFragment).commit()
-                        }
+                    if (activityFragment !== null) {
+                        supportFragmentManager.beginTransaction().show(activityFragment).commit()
+                    } else {
                         supportFragmentManager.beginTransaction().apply {
-                            replace(
+                            add(
                                 R.id.fragmentContainerView,
                                 ActivityFragment(),
                                 "activityFragment"
@@ -47,21 +41,14 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
-                R.id.navigation_profile -> {
-                    if (profileFragment !== null) {
-                        if (activityFragment !== null) {
-                            supportFragmentManager.beginTransaction().hide(activityFragment)
-                                .commit()
-                        }
-                        supportFragmentManager.beginTransaction().show(profileFragment)
-                            .commit()
-                    }
 
-                    else {
-                        if (activityFragment !== null) {
-                            supportFragmentManager.beginTransaction().hide(activityFragment)
-                                .commit()
-                        }
+                R.id.navigation_profile -> {
+                    if (activityFragment !== null) {
+                        supportFragmentManager.beginTransaction().hide(activityFragment).commit()
+                    }
+                    if (profileFragment !== null) {
+                        supportFragmentManager.beginTransaction().show(profileFragment).commit()
+                    } else {
                         supportFragmentManager.beginTransaction().apply {
                             replace(
                                 R.id.fragmentContainerView,
