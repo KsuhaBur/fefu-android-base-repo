@@ -20,6 +20,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().apply {
+                add(
+                    R.id.fragmentContainerView,
+                    ActivityFragment(),
+                    "activityFragment"
+                )
+                commit()
+            }
+        }
+
         binding.bottomNav.setOnNavigationItemSelectedListener {
             val activityFragment = supportFragmentManager.findFragmentByTag("activityFragment")
             val profileFragment = supportFragmentManager.findFragmentByTag("profileFragment")
@@ -30,15 +41,6 @@ class MainActivity : AppCompatActivity() {
                     }
                     if (activityFragment !== null) {
                         supportFragmentManager.beginTransaction().show(activityFragment).commit()
-                    } else {
-                        supportFragmentManager.beginTransaction().apply {
-                            add(
-                                R.id.fragmentContainerView,
-                                ActivityFragment(),
-                                "activityFragment"
-                            )
-                            commit()
-                        }
                     }
                 }
 
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                         supportFragmentManager.beginTransaction().show(profileFragment).commit()
                     } else {
                         supportFragmentManager.beginTransaction().apply {
-                            replace(
+                            add(
                                 R.id.fragmentContainerView,
                                 ProfileFragment(),
                                 "profileFragment"
