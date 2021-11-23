@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
 import android.widget.TableLayout
+import androidx.fragment.app.FragmentManager
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -42,5 +43,7 @@ class ActivityFragment : Fragment() {
 
         return myFragment
     }
+
+//    override fun getFlowFragmentManager(): FragmentManager = (parentFragment as FlowFragment).getFlowFragmentManager()
 
 }

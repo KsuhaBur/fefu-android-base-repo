@@ -1,19 +1,18 @@
-package ru.fefu.activitytracker
+package ru.fefu.activitytracker.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.Toast
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.FragmentManager
+import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ActivityMainBinding
 import ru.fefu.activitytracker.fragments.ActivityFragment
-import ru.fefu.activitytracker.fragments.MyActivityFragment
+import ru.fefu.activitytracker.fragments.FlowFragment
+import ru.fefu.activitytracker.fragments.MyActivityDetailsFragment
 import ru.fefu.activitytracker.fragments.ProfileFragment
-import java.lang.reflect.Array.newInstance
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,5 +63,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
     }
 }
