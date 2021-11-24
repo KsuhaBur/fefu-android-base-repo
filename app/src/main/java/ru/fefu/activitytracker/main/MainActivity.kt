@@ -2,13 +2,9 @@ package ru.fefu.activitytracker.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
 import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ActivityMainBinding
-import ru.fefu.activitytracker.fragments.ActivityFragment
-import ru.fefu.activitytracker.fragments.FlowFragment
-import ru.fefu.activitytracker.fragments.MyActivityDetailsFragment
-import ru.fefu.activitytracker.fragments.ProfileFragment
+import ru.fefu.activitytracker.fragments.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().apply {
                 add(
                     R.id.fragmentContainerView,
-                    ActivityFragment(),
+                    ActivityFragmentSwitch(),
                     "activityFragment"
                 )
                 commit()
@@ -63,6 +59,22 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+    }
 
+    override fun onBackPressed() {
+        val active = supportFragmentManager.fragments.firstOrNull{!it.isHidden}!!
+        val childManager = active.childFragmentManager
+
+        if (childManager.backStackEntryCount != 0) {
+            childManager.popBackStack()
+        }
+
+        else if (supportFragmentManager.backStackEntryCount != 0) {
+            supportFragmentManager.popBackStack()
+        }
+
+        else {
+            super.onBackPressed()
+        }
     }
 }

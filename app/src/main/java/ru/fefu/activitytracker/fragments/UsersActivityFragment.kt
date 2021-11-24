@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.fefu.activitytracker.BaseFragment
 import ru.fefu.activitytracker.ItemAdapter
+import ru.fefu.activitytracker.ListItem
 import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.FragmentMyActivityBinding
 import ru.fefu.activitytracker.databinding.FragmentUsersActivityBinding
@@ -30,11 +31,13 @@ class UsersActivityFragment : BaseFragment<FragmentUsersActivityBinding>(R.layou
         }
 
         adapterItems.setItemClickListener {
-            MainActivity().supportFragmentManager.beginTransaction().apply {
+            val manager = activity?.supportFragmentManager?.findFragmentByTag("activityFragment")?.childFragmentManager
+            manager?.beginTransaction()?.apply {
+                manager.fragments.forEach(::hide)
                 replace(
-                    R.id.fragmentContainerView,
-                    UsersActivityDetails(),
-                    "tag"
+                    R.id.activity_fragment_switch_container,
+                    UsersActivityDetails.newInstance(usersListRepository.getItem()[it] as ListItem.Item),
+                    "tadUsers"
                 )
                 addToBackStack(null)
                 commit()

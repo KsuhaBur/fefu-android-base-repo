@@ -1,20 +1,13 @@
 package ru.fefu.activitytracker.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.view.View
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import ru.fefu.activitytracker.BaseFragment
 import ru.fefu.activitytracker.ItemAdapter
+import ru.fefu.activitytracker.ListItem
 import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.FragmentMyActivityBinding
-import ru.fefu.activitytracker.main.MainActivity
-import java.lang.reflect.Array.newInstance
 
 class MyActivityFragment :
     BaseFragment<FragmentMyActivityBinding>(R.layout.fragment_my_activity) {
@@ -35,7 +28,17 @@ class MyActivityFragment :
         }
 
         adapterItems.setItemClickListener {
-
+            val manager = activity?.supportFragmentManager?.findFragmentByTag("activityFragment")?.childFragmentManager
+            manager?.beginTransaction()?.apply {
+                manager.fragments.forEach(::hide)
+                replace(
+                    R.id.activity_fragment_switch_container,
+                    MyActivityDetailsFragment.newInstance(listRepository.getItem()[it] as ListItem.Item)
+                )
+                addToBackStack(null)
+                commit()
+            }
         }
+
     }
 }

@@ -11,7 +11,7 @@ import java.lang.reflect.ParameterizedType
 
 open class BaseFragment<V : ViewBinding>(@LayoutRes layoutResId: Int) : Fragment(layoutResId) {
 
-    protected val binding: V
+    protected open val binding: V
         get() = _binding!!
 
     private var _binding: V? = null
