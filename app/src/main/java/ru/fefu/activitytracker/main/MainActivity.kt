@@ -1,19 +1,14 @@
-package ru.fefu.activitytracker
+package ru.fefu.activitytracker.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.Toast
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ActivityMainBinding
-import ru.fefu.activitytracker.fragments.ActivityFragment
-import ru.fefu.activitytracker.fragments.MyActivityFragment
-import ru.fefu.activitytracker.fragments.ProfileFragment
-import java.lang.reflect.Array.newInstance
+import ru.fefu.activitytracker.fragments.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().apply {
                 add(
                     R.id.fragmentContainerView,
-                    ActivityFragment(),
+                    ActivityFragmentSwitch(),
                     "activityFragment"
                 )
                 commit()
@@ -63,6 +58,23 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             true
+        }
+    }
+
+    override fun onBackPressed() {
+        val active = supportFragmentManager.fragments.firstOrNull{!it.isHidden}!!
+        val childManager = active.childFragmentManager
+
+        if (childManager.backStackEntryCount != 0) {
+            childManager.popBackStack()
+        }
+
+        else if (supportFragmentManager.backStackEntryCount != 0) {
+            supportFragmentManager.popBackStack()
+        }
+
+        else {
+            super.onBackPressed()
         }
     }
 }

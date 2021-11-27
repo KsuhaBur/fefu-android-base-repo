@@ -1,11 +1,11 @@
-package ru.fefu.activitytracker
+package ru.fefu.activitytracker.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import ru.fefu.activitytracker.R
 
 class WelcomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -24,4 +24,8 @@
     <string name="users_text2">Пользователи</string>
     <string name="my_activity_text">Моя активность</string>
     <string name="time_for_train_text">Время потренить</string>
+    <string name="_14">14 часов назад</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_comments">Комментарий</string>
 </resources>
