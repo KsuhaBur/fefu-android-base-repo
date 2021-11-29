@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                         supportFragmentManager.beginTransaction().apply {
                             add(
                                 R.id.fragmentContainerView,
-                                ProfileFragment(),
+                                ProfileFragmentSwitch(),
                                 "profileFragment"
                             )
                             commit()
