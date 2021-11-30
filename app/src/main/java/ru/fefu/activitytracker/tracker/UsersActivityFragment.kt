@@ -1,18 +1,14 @@
-package ru.fefu.activitytracker.fragments
+package ru.fefu.activitytracker.tracker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.fefu.activitytracker.BaseFragment
-import ru.fefu.activitytracker.ItemAdapter
-import ru.fefu.activitytracker.ListItem
+import ru.fefu.activitytracker.adapters.ItemAdapter
+import ru.fefu.activitytracker.lists.ListItem
 import ru.fefu.activitytracker.R
-import ru.fefu.activitytracker.databinding.FragmentMyActivityBinding
 import ru.fefu.activitytracker.databinding.FragmentUsersActivityBinding
-import ru.fefu.activitytracker.main.MainActivity
+import ru.fefu.activitytracker.lists.UsersListRepository
 
 class UsersActivityFragment : BaseFragment<FragmentUsersActivityBinding>(R.layout.fragment_users_activity) {
     private val usersListRepository = UsersListRepository()

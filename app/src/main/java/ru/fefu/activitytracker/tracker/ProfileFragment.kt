@@ -1,12 +1,10 @@
-package ru.fefu.activitytracker.fragments
+package ru.fefu.activitytracker.tracker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ru.fefu.activitytracker.BaseFragment
-import ru.fefu.activitytracker.ListItem
 import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.FragmentProfileBinding
 

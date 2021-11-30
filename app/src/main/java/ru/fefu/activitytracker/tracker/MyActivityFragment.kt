@@ -1,13 +1,14 @@
-package ru.fefu.activitytracker.fragments
+package ru.fefu.activitytracker.tracker
 
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.fefu.activitytracker.BaseFragment
-import ru.fefu.activitytracker.ItemAdapter
-import ru.fefu.activitytracker.ListItem
+import ru.fefu.activitytracker.adapters.ItemAdapter
+import ru.fefu.activitytracker.lists.ListItem
 import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.FragmentMyActivityBinding
+import ru.fefu.activitytracker.lists.MyListRepository
 
 class MyActivityFragment :
     BaseFragment<FragmentMyActivityBinding>(R.layout.fragment_my_activity) {
