@@ -1,6 +1,4 @@
-package ru.fefu.activitytracker.fragments
-
-import ru.fefu.activitytracker.ListItem
+package ru.fefu.activitytracker.lists
 
 class MyListRepository {
     private val listItem = listOf(

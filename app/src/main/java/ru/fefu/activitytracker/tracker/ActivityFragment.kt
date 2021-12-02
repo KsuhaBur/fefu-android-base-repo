@@ -1,24 +1,27 @@
-package ru.fefu.activitytracker.fragments
+package ru.fefu.activitytracker.tracker
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import android.widget.ImageButton
 import android.widget.TableLayout
-import androidx.fragment.app.FragmentManager
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import ru.fefu.activitytracker.R
+import ru.fefu.activitytracker.adapters.ViewPagerAdapter
+import ru.fefu.activitytracker.databinding.FragmentActivityBinding
+import ru.fefu.activitytracker.map.NewActivity
 
 class ActivityFragment : Fragment() {
     private lateinit var adapter: ViewPagerAdapter
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TableLayout
+    private val _binding: FragmentActivityBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,9 +44,12 @@ class ActivityFragment : Fragment() {
             }
         }.attach()
 
+        val btnFab = myFragment.findViewById<ImageButton>(R.id.button_fab)
+        btnFab.setOnClickListener {
+            startActivity(Intent(requireActivity(), NewActivity::class.java))
+        }
+
         return myFragment
     }
-
-//    override fun getFlowFragmentManager(): FragmentManager = (parentFragment as FlowFragment).getFlowFragmentManager()
 
 }

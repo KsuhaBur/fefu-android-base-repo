@@ -1,10 +1,9 @@
-package ru.fefu.activitytracker.main
+package ru.fefu.activitytracker.tracker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ActivityMainBinding
-import ru.fefu.activitytracker.fragments.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                         supportFragmentManager.beginTransaction().apply {
                             add(
                                 R.id.fragmentContainerView,
-                                ProfileFragment(),
+                                ProfileFragmentSwitch(),
                                 "profileFragment"
                             )
                             commit()

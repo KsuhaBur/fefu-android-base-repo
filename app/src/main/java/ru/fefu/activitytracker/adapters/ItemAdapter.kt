@@ -1,14 +1,13 @@
-package ru.fefu.activitytracker
+package ru.fefu.activitytracker.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
+import ru.fefu.activitytracker.lists.ListItem
+import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ItemDataBinding
 import ru.fefu.activitytracker.databinding.ModelItemBinding
-import ru.fefu.activitytracker.fragments.MyActivityDetailsFragment
-import ru.fefu.activitytracker.main.MainActivity
 
 class ItemAdapter(items: List<ListItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val list = items.toMutableList()
