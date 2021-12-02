@@ -43,6 +43,10 @@ class StartTrackingFragment :
                 commit()
             }
         }
+
+        adapterTypes.setItemClickListener {
+
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
