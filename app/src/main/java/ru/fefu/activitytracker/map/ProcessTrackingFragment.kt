@@ -30,9 +30,16 @@ BaseFragment<FragmentProcessTrackingBinding>(R.layout.fragment_process_tracking)
         btnFinish.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+
+        binding.buttonPause.setOnClickListener {
+
+        }
+
         binding.buttonFinish.setOnClickListener {
 
         }
+
+
     }
 
     override fun onCreateView(

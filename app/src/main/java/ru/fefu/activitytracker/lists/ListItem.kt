@@ -1,5 +1,7 @@
 package ru.fefu.activitytracker.lists
 
+import java.time.LocalDateTime
+
 sealed class ListItem {
     data class Item(
         val distance: String,

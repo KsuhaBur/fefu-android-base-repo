@@ -24,11 +24,11 @@ class MyActivityDetailsFragment(details: ListItem.Item) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.textMyDistance.text = detail.distance
-        binding.textMyDate.text = detail.date
+//        binding.textMyDate.text = detail.date
         binding.textMyTime.text = detail.time
-        binding.textMyStartTime.text = detail.startTime
-        binding.textMyFinishTime.text = detail.endTime
-        binding.toolbarMy.title = detail.activity
+        binding.textMyStartTime.text = detail.startTime.toString()
+        binding.textMyFinishTime.text = detail.endTime.toString()
+//        binding.toolbarMy.title = detail.activity
         binding.toolbarMy.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
