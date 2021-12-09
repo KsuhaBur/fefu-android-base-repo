@@ -15,8 +15,6 @@ data class ActivityRoom(
     @ColumnInfo(name = "start_time") val startTime: Long,
     // время конца
     @ColumnInfo(name = "end_time") val endTime: Long,
-    // начальные координаты
-    @ColumnInfo(name = "latitude") val latitude: Double,
-    // конечные координаты
-    @ColumnInfo(name = "longitude") val longitude: Double
+    // координаты
+    @ColumnInfo(name = "coordinates") val coordinates: List<Pair<Double, Double>>
 )

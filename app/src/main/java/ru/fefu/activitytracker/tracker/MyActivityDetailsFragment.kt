@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import ru.fefu.activitytracker.BaseFragment
 import ru.fefu.activitytracker.lists.ListItem
 import ru.fefu.activitytracker.R
+import ru.fefu.activitytracker.adapters.ItemAdapter
 import ru.fefu.activitytracker.databinding.FragmentMyActivityDetailsBinding
+import java.time.Duration
+import java.time.LocalDateTime
 
 class MyActivityDetailsFragment(details: ListItem.Item) :
     BaseFragment<FragmentMyActivityDetailsBinding>(R.layout.fragment_my_activity_details) {
@@ -24,11 +27,14 @@ class MyActivityDetailsFragment(details: ListItem.Item) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.textMyDistance.text = detail.distance
-//        binding.textMyDate.text = detail.date
-        binding.textMyTime.text = detail.time
-        binding.textMyStartTime.text = detail.startTime.toString()
-        binding.textMyFinishTime.text = detail.endTime.toString()
-//        binding.toolbarMy.title = detail.activity
+        val startTime = "%02d".format(detail.startTime.hour) + ":" + "%02d".format(detail.startTime.minute)
+        val endTime = "%02d".format(detail.endTime.hour) + ":" + "%02d".format(detail.endTime.minute)
+        binding.textMyStartTime.text = startTime
+        binding.textMyFinishTime.text = endTime
+
+        binding.textMyDate.text = detail.date
+
+        binding.toolbarMy.title = detail.activity
         binding.toolbarMy.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
