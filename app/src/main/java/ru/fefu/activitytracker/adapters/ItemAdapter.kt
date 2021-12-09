@@ -63,7 +63,7 @@ class ItemAdapter(items: List<ListItem>): RecyclerView.Adapter<RecyclerView.View
 
         fun bind(model: ListItem.Item) = with(binding) {
             textDistance.text = model.distance
-            textTime.text = model.time
+            textTime.text = (model.endTime - model.startTime).toString()
             textActivity.text = model.activity
             textDate.text = model.date
             textUsers.text = model.user

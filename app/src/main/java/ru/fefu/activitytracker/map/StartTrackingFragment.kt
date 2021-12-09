@@ -32,7 +32,9 @@ class StartTrackingFragment :
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
 
-
+        App.INSTANCE.db.activityDao().getAll().observe(viewLifecycleOwner) {
+            
+        }
 
         binding.buttonStart.setOnClickListener {
             val endTime = System.currentTimeMillis() - (0..604800000).random()
@@ -40,7 +42,7 @@ class StartTrackingFragment :
             App.INSTANCE.db.activityDao().insert (
                 ActivityRoom (
                     0,
-                    0,
+                    adapterTypes.selected,
                     startTime,
                     endTime,
                     123.0,
@@ -59,9 +61,9 @@ class StartTrackingFragment :
             }
         }
 
-        adapterTypes.setItemClickListener {
-
-        }
+//        adapterTypes.setItemClickListener {
+//
+//        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

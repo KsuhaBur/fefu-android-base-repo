@@ -10,8 +10,8 @@ class UsersListRepository {
             time = "2 часа 46 минут",
             activity = "Серфинг",
             date = "14 часов назад",
-            startTime = "13:00",
-            endTime = "15:46",
+            startTime = 541646849846546,
+            endTime = 155415416565,
             user = "@van_darkholme",
         ),
         ListItem.Item(
@@ -19,8 +19,8 @@ class UsersListRepository {
             time = "14 часов 48 минут",
             activity = "Качели",
             date = "14 часов назад",
-            startTime = "00:00",
-            endTime = "14:48",
+            startTime = 521541454546454645,
+            endTime = 5148498484898,
             user = "@techniquepasha",
         ),
         ListItem.Item(
@@ -28,8 +28,8 @@ class UsersListRepository {
             time = "1 час 10 минут",
             activity = "Езда на кадилак",
             date = "14 часов назад",
-            startTime = "20:35",
-            endTime = "21:45",
+            startTime = 151514654645,
+            endTime = 55444545468,
             user = "@morgen_shtern",
         ),
     )

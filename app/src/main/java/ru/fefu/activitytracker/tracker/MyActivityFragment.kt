@@ -16,6 +16,8 @@ import ru.fefu.activitytracker.room.ActivityRoom
 class MyActivityFragment :
     BaseFragment<FragmentMyActivityBinding>(R.layout.fragment_my_activity) {
 
+
+
     private val listRepository = MyListRepository()
     private val adapterItems = ItemAdapter(listRepository.getItem())
 
@@ -30,17 +32,6 @@ class MyActivityFragment :
             adapter = adapterItems
             layoutManager = LinearLayoutManager(requireContext())
         }
-
-//        App.INSTANCE.db.activityDao().insert (
-//            ActivityRoom (
-//                0,
-//                1,
-//                startDate,
-//                endDate,
-//                123.0,
-//                131.0
-//            )
-//        )
 
         adapterItems.setItemClickListener {
             val manager = activity?.supportFragmentManager?.findFragmentByTag("activityFragment")?.childFragmentManager

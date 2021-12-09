@@ -8,8 +8,8 @@ sealed class ListItem {
         val time: String,
         val date: String,
         val activity: String,
-        val startTime: String,
-        val endTime: String,
+        val startTime: Long,
+        val endTime: Long,
         val user: String = "",
     ) : ListItem()
 

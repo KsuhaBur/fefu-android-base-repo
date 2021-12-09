@@ -17,17 +17,6 @@ class NewActivity : AppCompatActivity() {
         val binding = ActivityNewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        App.INSTANCE.db.activityDao().insert (
-//            ActivityRoom (
-//                0,
-//                adapter.selected,
-//                startDate,
-//                endDate,
-//                123.0,
-//                131.0
-//            )
-//        )
-
         binding.toolbarNewActivity.setNavigationOnClickListener {
             onBackPressed()
         }

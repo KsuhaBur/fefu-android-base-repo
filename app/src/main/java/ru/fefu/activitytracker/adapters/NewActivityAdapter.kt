@@ -4,14 +4,16 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.selects.select
 import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ItemActivityTypeBinding
 import ru.fefu.activitytracker.lists.ActivityType
 
 class NewActivityAdapter(items: List<ActivityType>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var selected = -1
+    var selected: Int = -1
 
     private val list = items.toMutableList()
 
@@ -27,9 +29,12 @@ class NewActivityAdapter(items: List<ActivityType>):
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val cardView = holder.itemView.findViewById<CardView>(R.id.cardView)
         when(holder) {
             is ViewHolder -> holder.bind(list[position])
         }
+        if (selected == position) cardView.setBackgroundResource(R.drawable.border_selected)
+        else cardView.setBackgroundResource(R.drawable.border)
     }
 
     override fun getItemCount(): Int = 3
@@ -41,18 +46,8 @@ class NewActivityAdapter(items: List<ActivityType>):
         @SuppressLint("ResourceAsColor", "NotifyDataSetChanged")
         fun bind(model: ActivityType) = with(binding) {
             textActivityType.text = model.activity
-            itemView.isSelected = model.isSelected
 
-            if (itemView.isSelected) {
-                itemView.setBackgroundColor(R.drawable.border_selected)
-            } else {
-                itemView.setBackgroundColor(R.drawable.border)
-            }
             itemView.setOnClickListener {
-                list[adapterPosition].isSelected = true
-                if (selected != -1 && selected != adapterPosition) {
-                    list[selected].isSelected = false
-                }
                 selected = adapterPosition
                 notifyDataSetChanged()
             }
