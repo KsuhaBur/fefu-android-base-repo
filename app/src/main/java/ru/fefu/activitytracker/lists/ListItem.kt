@@ -4,6 +4,7 @@ import java.time.LocalDateTime
 
 sealed class ListItem {
     data class Item(
+        val id: Int,
         val distance: String,
         val time: String = "",
         val date: String,

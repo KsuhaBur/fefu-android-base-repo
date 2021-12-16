@@ -11,6 +11,7 @@ class UsersListRepository {
             date = "Вчера",
         ),
         ListItem.Item(
+            id = 125,
             distance = "14.32 км",
             time = "2 часа 46 минут",
             activity = "Серфинг",
@@ -20,6 +21,7 @@ class UsersListRepository {
             user = "@van_darkholme",
         ),
         ListItem.Item(
+            id = 133,
             distance = "228 м",
             time = "14 часов 48 минут",
             activity = "Качели",
@@ -29,6 +31,7 @@ class UsersListRepository {
             user = "@techniquepasha",
         ),
         ListItem.Item(
+            id = 15,
             distance = "10 км",
             time = "1 час 10 минут",
             activity = "Езда на кадилак",

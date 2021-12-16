@@ -91,6 +91,7 @@ class MyActivityFragment :
             listRepository.clear()
             listRepositoryDate.clear()
             for (activity in it) {
+                val id = activity.id
                 val type = getActivityType(activity.type)
                 val startDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(activity.startTime), ZoneId.systemDefault())
                 val endDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(activity.endTime), ZoneId.systemDefault())
@@ -120,19 +121,21 @@ class MyActivityFragment :
                 }
 
                 val distance = "1000 м"
-                listRepository.add(ListItem.Item(distance, time, date, type, startDate, endDate))
+                listRepository.add(ListItem.Item(id, distance, time, date, type, startDate, endDate))
             }
             fillDate(listRepository)
             adapterItems.notifyDataSetChanged()
         }
 
         adapterItems.setItemClickListener {
+            val Activity_ = listRepositoryDate[it] as ListItem.Item
+            val idActivity = Activity_.id
             val manager = activity?.supportFragmentManager?.findFragmentByTag("activityFragment")?.childFragmentManager
             manager?.beginTransaction()?.apply {
                 manager.fragments.forEach(::hide)
                 replace(
                     R.id.activity_fragment_switch_container,
-                    MyActivityDetailsFragment.newInstance(listRepository[it] as ListItem.Item)
+                    MyActivityDetailsFragment.newInstance(idActivity)
                 )
                 addToBackStack(null)
                 commit()
