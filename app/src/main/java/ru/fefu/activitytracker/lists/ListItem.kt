@@ -1,13 +1,16 @@
 package ru.fefu.activitytracker.lists
 
+import java.time.LocalDateTime
+
 sealed class ListItem {
     data class Item(
+        val id: Int,
         val distance: String,
-        val time: String,
+        val time: String = "",
         val date: String,
         val activity: String,
-        val startTime: String,
-        val endTime: String,
+        val startTime: LocalDateTime,
+        val endTime: LocalDateTime,
         val user: String = "",
     ) : ListItem()
 

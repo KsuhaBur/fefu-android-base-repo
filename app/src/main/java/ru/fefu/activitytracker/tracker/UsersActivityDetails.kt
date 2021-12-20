@@ -27,8 +27,8 @@ class UsersActivityDetails(details: ListItem.Item) :
         binding.textUserDistance.text = detail.distance
         binding.textUserDate.text = detail.date
         binding.textUserTime.text = detail.time
-        binding.textUserStartTime.text = detail.startTime
-        binding.textUserFinishTime.text = detail.endTime
+        binding.textUserStartTime.text = detail.startTime.toString()
+        binding.textUserFinishTime.text = detail.endTime.toString()
         binding.toolbarUser.title = detail.activity
         binding.toolbarUser.setNavigationOnClickListener() {
             activity?.onBackPressed()

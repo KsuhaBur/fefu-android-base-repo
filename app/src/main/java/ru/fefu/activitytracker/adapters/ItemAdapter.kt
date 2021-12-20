@@ -9,8 +9,7 @@ import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ItemDataBinding
 import ru.fefu.activitytracker.databinding.ModelItemBinding
 
-class ItemAdapter(items: List<ListItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val list = items.toMutableList()
+class ItemAdapter(private val list: List<ListItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var itemClickListener: (Int) -> Unit = {}
 
@@ -42,6 +41,24 @@ class ItemAdapter(items: List<ListItem>): RecyclerView.Adapter<RecyclerView.View
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    companion object {
+        fun getNoun(number: Long, one: String, two: String, five: String) : String {
+            var n = number
+            n %= 100
+            if (n in 5..20) {
+                return five
+            }
+            n %= 10
+            if (n == 1L) {
+                return one
+            }
+            if (n in 2..4) {
+                return two
+            }
+            return five
+        }
     }
 
 //    @SuppressLint("NotifyDataSetChanged")
