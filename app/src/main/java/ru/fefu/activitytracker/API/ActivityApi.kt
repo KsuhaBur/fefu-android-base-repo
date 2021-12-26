@@ -23,6 +23,6 @@ interface ActivityApi {
     @POST("/api/auth/logout")
     suspend fun logout(): Unit
 
-    @GET("/api/auth/profile")
+    @GET("/api/user/profile")
     suspend fun getProfile(): User
 }
