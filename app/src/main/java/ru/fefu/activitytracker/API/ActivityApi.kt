@@ -9,8 +9,8 @@ interface ActivityApi {
     @POST("/api/auth/register")
     suspend fun register(
         @Query("login") login: String,
-        @Query("name") name: String,
         @Query("password") password: String,
+        @Query("name") name: String,
         @Query("gender") gender: Int,
     ): Token
 

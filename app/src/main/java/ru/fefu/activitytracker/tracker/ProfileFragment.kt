@@ -69,10 +69,13 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
             .onEach {
                 if (it is Result.Success<User>) {
                     binding.loginProfile.editText?.setText(it.result.login)
-                    binding.loginProfile.editText?.setText(it.result.name)
+                    binding.nameProfile.editText?.setText(it.result.name)
+                    println(it.result.login)
+                    println(it.result.name)
                 }
                 else if (it is Result.Errors<User>) {
                     Toast.makeText(requireContext(), it.errors.toString(), Toast.LENGTH_LONG).show()
+                    println(it.errors.toString())
                 }
             }
             .launchIn(lifecycleScope)

@@ -20,6 +20,7 @@ import ru.fefu.activitytracker.API.Token
 import ru.fefu.activitytracker.API.Result
 import ru.fefu.activitytracker.App
 import ru.fefu.activitytracker.R
+import ru.fefu.activitytracker.tracker.MainActivity
 
 class Registration : AppCompatActivity() {
     private lateinit var viewModel: RegisterViewModel
@@ -33,12 +34,13 @@ class Registration : AppCompatActivity() {
             .onEach {
                 if (it is Result.Success<Token>) {
                     App.INSTANCE.sharedPrefs.edit().putString("token", it.result.token).apply()
-                    val intent = Intent(this, Registration::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
                 else if (it is Result.Errors<Token>) {
                     Toast.makeText(this, it.errors.toString(), Toast.LENGTH_LONG).show()
+                    println(it.errors.toString())
                 }
             }
             .launchIn(lifecycleScope)
@@ -52,14 +54,14 @@ class Registration : AppCompatActivity() {
             val gender: Int
             if (findViewById<RadioButton>(R.id.radioButtonMale).isChecked) {
                 gender = 0
-            } else if (findViewById<RadioButton>(R.id.radioButtonMale).isChecked) {
+            } else if (findViewById<RadioButton>(R.id.radioButtonFemale).isChecked) {
                 gender = 1
             } else {
                 gender = 2
             }
 
             if (password == repeatPassword) {
-                viewModel.register(login, password, name, gender)
+                viewModel.register(login, name, password, gender)
             } else {
                 Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_LONG).show()
             }

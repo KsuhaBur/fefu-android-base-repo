@@ -13,7 +13,7 @@ class RegisterViewModel: ViewModel() {
 
     val dataFlow get() = _dataFlow
 
-    fun register(login: String, password: String, name: String, gender: Int) {
+    fun register(login: String, name: String, password: String, gender: Int) {
         viewModelScope.launch {
             loginRepository.register(login, password, name, gender)
                 .collect {
