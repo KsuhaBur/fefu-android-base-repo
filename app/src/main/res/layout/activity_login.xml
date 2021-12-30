@@ -45,7 +45,7 @@
                 app:srcCompat="@drawable/ic_registration_bycycles" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textLogin"
+                android:id="@+id/login_entrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -56,13 +56,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageBicycles">
 
                 <com.google.android.material.textfield.TextInputEditText
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/login_text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textPassword"
+                android:id="@+id/password_entrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -74,6 +75,7 @@
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password_text"

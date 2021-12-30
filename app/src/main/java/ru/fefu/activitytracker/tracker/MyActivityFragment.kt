@@ -125,7 +125,16 @@ class MyActivityFragment :
             }
             fillDate(listRepository)
             adapterItems.notifyDataSetChanged()
+
+            if (listRepository.isEmpty()) {
+                binding.text.visibility = View.VISIBLE
+            } else {
+                binding.text.visibility = View.GONE
+            }
         }
+
+
+
 
         adapterItems.setItemClickListener {
             val Activity_ = listRepositoryDate[it] as ListItem.Item

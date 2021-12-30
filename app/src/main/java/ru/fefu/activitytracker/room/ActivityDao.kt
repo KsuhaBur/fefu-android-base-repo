@@ -10,18 +10,15 @@ import androidx.room.Query
 @Dao
 public interface ActivityDao {
 
-    // выборка всех полей таблицы
     @Query("SELECT * FROM ActivityRoom ORDER BY end_time DESC")
     fun getAll(): LiveData<List<ActivityRoom>>
 
     @Query("SELECT * FROM ActivityRoom WHERE id = :id")
     fun getById(id: Int): ActivityRoom
 
-    // вставка нового элемента в таблицу
     @Insert
     fun insert(activity: ActivityRoom)
 
-    // удаление элемента из таблицы
     @Delete
     fun delete(activity: ActivityRoom)
 }
